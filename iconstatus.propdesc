@@ -1,0 +1,38 @@
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windows/2006/propertydescription" schemaVersion="1.0" >
+  <propertyDescriptionList publisher="byungho" product="NSE1.VF">
+    <propertyDescription name="NSE1.VF.StatusUI" formatID="{A00FE456-3E31-4811-A367-00E43A8E19E2}" propID="1">
+      <searchInfo reIndexPatterns="" processReIndexPatternsImmediately="true" inInvertedIndex="false" isColumn="false">
+      </searchInfo>
+      <typeInfo type="Blob" isViewable="true">
+      </typeInfo>
+      <labelInfo label="StatusUI">
+      </labelInfo>
+      <displayInfo defaultColumnWidth="10">
+        <drawControl control="IconList">
+        </drawControl>
+      </displayInfo>
+    </propertyDescription>
+    <propertyDescription name="NSE1.VF.Status" formatID="{A00FE456-3E31-4811-A367-00E43A8E19E2}" propID="2">
+      <searchInfo reIndexPatterns="" processReIndexPatternsImmediately="true" inInvertedIndex="false" isColumn="false">
+      </searchInfo>
+      <typeInfo type="UInt32" isInnate="true" groupingRange="Enumerated" isViewable="true">
+      </typeInfo>
+      <displayInfo displayType="Enumerated">
+        <enumeratedList>
+          <enum name="None" value="0" text="">
+          </enum>
+          <enum name="option1" value="1" text="">
+            <image res="%ALLUSERSPROFILE%\imageres.dll,3">
+            </image>
+          </enum>
+		  <enum name="option2" value="2" text="">
+            <image res="%ALLUSERSPROFILE%\imageres.dll,2">
+            </image>
+          </enum>
+        </enumeratedList>
+      </displayInfo>
+      <labelInfo label="IconStatus1">
+      </labelInfo>
+    </propertyDescription>
+  </propertyDescriptionList>
+</schema>
