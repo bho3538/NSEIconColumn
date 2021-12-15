@@ -34,5 +34,49 @@
       <labelInfo label="IconStatus1">
       </labelInfo>
     </propertyDescription>
+	<propertyDescription name="NSE1.VF.Status2" formatID="{A00FE456-3E31-4811-A367-00E43A8E19E2}" propID="3">
+      <searchInfo reIndexPatterns="" processReIndexPatternsImmediately="true" inInvertedIndex="false" isColumn="false">
+      </searchInfo>
+      <typeInfo type="UInt32" isInnate="true" groupingRange="Enumerated" isViewable="true">
+      </typeInfo>
+      <displayInfo displayType="Enumerated">
+        <enumeratedList>
+          <enum name="None" value="0" text="">
+          </enum>
+          <enum name="option1" value="1" text="">
+            <image res="%ALLUSERSPROFILE%\imageres.dll,4">
+            </image>
+          </enum>
+		  <enum name="option2" value="2" text="">
+            <image res="%ALLUSERSPROFILE%\imageres.dll,5">
+            </image>
+          </enum>
+        </enumeratedList>
+      </displayInfo>
+      <labelInfo label="IconStatus2">
+      </labelInfo>
+    </propertyDescription>
+	<propertyDescription name="NSE1.VF.Status3" formatID="{A00FE456-3E31-4811-A367-00E43A8E19E2}" propID="4">
+      <searchInfo reIndexPatterns="" processReIndexPatternsImmediately="true" inInvertedIndex="false" isColumn="false">
+      </searchInfo>
+      <typeInfo type="UInt32" isInnate="true" groupingRange="Enumerated" isViewable="true">
+      </typeInfo>
+      <displayInfo displayType="Enumerated">
+        <enumeratedList>
+          <enum name="None" value="0" text="">
+          </enum>
+          <enum name="option1" value="1" text="">
+            <image res="%ALLUSERSPROFILE%\imageres.dll,6">
+            </image>
+          </enum>
+		  <enum name="option2" value="2" text="">
+            <image res="%ALLUSERSPROFILE%\imageres.dll,7">
+            </image>
+          </enum>
+        </enumeratedList>
+      </displayInfo>
+      <labelInfo label="IconStatus3">
+      </labelInfo>
+    </propertyDescription>
   </propertyDescriptionList>
 </schema>

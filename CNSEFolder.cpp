@@ -2,6 +2,10 @@
 const PROPERTYKEY PKEY_StatusIconColumn = {{0xa00fe456,0x3e31,0x4811,{0xa3,0x67,0x00,0xe4,0x3a,0x8e,0x19,0xe2}},1};
 const PROPERTYKEY PKEY_StatusIcon = {{0xa00fe456,0x3e31,0x4811,{0xa3,0x67,0x00,0xe4,0x3a,0x8e,0x19,0xe2}},2};
 
+//multiple icon GUID. (in iconstatus.propdesc).
+const PROPERTYKEY PKEY_StatusIcon2 = { {0xa00fe456,0x3e31,0x4811,{0xa3,0x67,0x00,0xe4,0x3a,0x8e,0x19,0xe2}},3 };
+const PROPERTYKEY PKEY_StatusIcon3 = { {0xa00fe456,0x3e31,0x4811,{0xa3,0x67,0x00,0xe4,0x3a,0x8e,0x19,0xe2}},4 };
+
 //undocumented property key.
 //{c9944a21-a406-48fe-8225-aec7e24c211b}
 const PROPERTYKEY PKEY_SystemStatusIcon = { { 0xc9944a21, 0xa406, 0x48fe, 0x82, 0x25, 0xae, 0xc7, 0xe2, 0x4c, 0x21, 0x1b }, 16 };
@@ -46,10 +50,23 @@ HRESULT __stdcall CPropertyStore::GetValue(REFPROPERTYKEY key, PROPVARIANT *pv){
 		tmp.uintVal = 2;
 		ppropstore->SetValue(PKEY_SystemIconFlag,&tmp);
 		
+		//icon 1
 		tmp.vt = VT_UI4;
 		tmp.uintVal = 1; //option 1 (in propdesc)
 		//tmp.uintVal = 2; //option 2 (in propdesc)
 		ppropstore->SetValue(PKEY_StatusIcon,&tmp);
+
+		//icon 2
+		tmp.vt = VT_UI4;
+		tmp.uintVal = 1; //option 1 (in propdesc)
+		//tmp.uintVal = 2; //option 2 (in propdesc)
+		ppropstore->SetValue(PKEY_StatusIcon2, &tmp);
+
+		//icon 3
+		tmp.vt = VT_UI4;
+		tmp.uintVal = 1; //option 1 (in propdesc)
+		//tmp.uintVal = 2; //option 2 (in propdesc)
+		ppropstore->SetValue(PKEY_StatusIcon3, &tmp);
 		
 		hr = ps->QueryInterface(IID_IPersistSerializedPropStorage,&psps);
 		if(FAILED(hr)){
