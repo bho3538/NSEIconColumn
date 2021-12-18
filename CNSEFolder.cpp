@@ -30,7 +30,7 @@ HRESULT __stdcall CPropertyStore::GetValue(REFPROPERTYKEY key, PROPVARIANT *pv){
 		IPropertyStore* ppropstore = NULL;
 		IPersistSerializedPropStorage* psps = NULL;
 		DWORD cbSize = 0;
-		BYTE* pBuf = NULL;
+		SERIALIZEDPROPSTORAGE* psp = NULL;
 		
 		if(!IsWindows8OrGreater()){ //support windows 8+ (in windows 7 explorer will crash)
 			hr = E_FAIL;
@@ -43,7 +43,12 @@ HRESULT __stdcall CPropertyStore::GetValue(REFPROPERTYKEY key, PROPVARIANT *pv){
 		
 		//initialize icon column (system)
 		tmp.vt = VT_BSTR;
+
+		// Single icon
 		tmp.bstrVal = SysAllocString(L"prop:NSE1.VF.Status;"); //(orange square in propdesc)
+
+		// Multiple icons
+		//tmp.bstrVal = SysAllocString(L"prop:NSE1.VF.Status;NSE1.VF.Status2;NSE1.VF.Status3;"); 
 		ppropstore->SetValue(PKEY_SystemStatusIcon,&tmp);
 		
 		tmp.vt = VT_UI4;
@@ -68,18 +73,18 @@ HRESULT __stdcall CPropertyStore::GetValue(REFPROPERTYKEY key, PROPVARIANT *pv){
 		//tmp.uintVal = 2; //option 2 (in propdesc)
 		ppropstore->SetValue(PKEY_StatusIcon3, &tmp);
 		
-		hr = ps->QueryInterface(IID_IPersistSerializedPropStorage,&psps);
+		hr = ppropstore->QueryInterface(IID_IPersistSerializedPropStorage, &psps);
 		if(FAILED(hr)){
 			goto cleanArea;
 		}
 		
-		hr = psps->GetPropertyStorage(&pBuf,&cbSize);
+		hr = psps->GetPropertyStorage(&psp,&cbSize);
 		if(FAILED(hr)){
 			goto cleanArea;
 		}
 		
 		pv->vt = VT_BLOB;
-		pv->blob.pBlobData = pBuf;
+		pv->blob.pBlobData = (BYTE*)psp;
         pv->blob.cbSize = cbSize;
 		
 		cleanArea:
